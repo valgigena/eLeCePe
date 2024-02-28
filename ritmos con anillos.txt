@@ -1,0 +1,19 @@
+
+
+#RITMOS DE SONIC PI / EXPLICADO POR ANDY
+
+ritm = ring(1,0,0,1,1,1,0,1)
+
+define :kako do | ritm |
+  if ritm > 0
+    sample :bd_ada , amp: ritm
+  end
+  if ritm == 0
+    use_synth  :bass_foundation
+  end
+  sleep 0.25
+end
+
+live_loop :sarasa do
+  kako ritm.tick
+end

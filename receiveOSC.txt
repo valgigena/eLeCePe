@@ -1,0 +1,14 @@
+
+use_osc "localhost", 4560
+osc_amp = 0
+
+
+live_loop :osc_listener do
+  osc_data = sync "/osc:127.0.0.1:38290/slider"
+  osc_amp = osc_data[0]
+end
+
+live_loop :test do
+  play 60, amp: osc_amp
+  sleep 1
+end
